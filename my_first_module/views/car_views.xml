@@ -1,0 +1,65 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="car_tree_view">
+          <field name="name">car tree view</field>
+          <field name="model">car</field>
+          <field name="arch" type="xml">
+            <tree>
+              <field name="name"/>
+              <field name="horse_power"/>
+              <field name="door_number"/>
+              <field name="driver_id"/>
+            </tree>
+          </field>
+        </record>
+
+        <record model="ir.ui.view" id="car_form_view">
+          <field name="name">car form view</field>
+          <field name="model">car</field>
+          <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="name"/>
+                    <field name="horse_power"/>
+                    <field name="door_number"/>
+                    <field name="driver_id"/>
+                    <field name="feature_ids"/>
+                    <field name="total_speed"/>
+                    <field name="status"/>
+                    <field name="car_sequence"/>
+                </group>
+            </form>
+          </field>
+        </record>
+
+        <record model="ir.ui.view" id="parking_tree_view">
+          <field name="name">parking tree view</field>
+          <field name="model">parking</field>
+          <field name="arch" type="xml">
+            <tree>
+              <field name="name"/>
+              <field name="car_ids"/>
+            </tree>
+          </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="car_action">
+          <field name="name">car</field>
+          <field name="res_model">car</field>
+          <field name="view_type">tree,form</field>
+          <field name="view_mode">tree,form</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="parking_action">
+          <field name="name">parking</field>
+          <field name="res_model">parking</field>
+          <field name="view_type">tree,form</field>
+          <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="Cars" id="main_menu"/>
+
+        <menuitem name="car" id="car_main_menu" parent="main_menu" action="car_action"/>
+        <menuitem name="parking" id="parking_main_menu" parent="main_menu" action="parking_action"/>
+    </data>
+</odoo>
